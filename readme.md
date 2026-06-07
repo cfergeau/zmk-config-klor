@@ -4,6 +4,23 @@
   <img alt="KLOR logo font" src="/docs/images/klor-font-logo-bright.svg">
 </picture>
 
+# ZMK MODULE FOR THE KLOR SPLIT KEYBOARD
+
+This repository is a fork of [GEIGEIGEIST zmk-config-klor](https://github.com/GEIGEIGEIST/zmk-config-klor).
+It turns it into a [ZMK module](https://zmk.dev/docs/features/modules) and
+follows recommendations from the ZMK project:
+> A common ZMK setup thus consists of the following separate components, commonly housed in their respective Git repositories:
+> - A single ZMK config maintained by the user, containing the .conf and .keymap files for one or multiple keyboards. This is also where files from ZMK or modules should be overridden/modified, if there is a need.
+> - Any number of ZMK modules, maintained by the module's owner. Some modules may contain multiple keyboards or functionalities. If all of your keyboards and functionalities are internal to ZMK's tree, then no modules are necessary.
+> - The ZMK firmware itself, maintained by its contributors.
+
+This git repository only contains the code for the KLOR shield (read "keyboard" if you are unfamiliar with ZMK terminology).
+It’s meant to be used in combination with a separate "config" git repository which will contain your own keymap definitions.
+
+Its `main` branch has the necessary changes to make it build with ZMK `main` branch.
+
+Both branches also have support for ZMK Studio.
+
 # ZMK CONFIG FOR THE KLOR SPLIT KEYBOARD
 
 [Here](https://github.com/GEIGEIGEIST/qmk-config-klor) you can find the QMK config for the KLOR.\
@@ -14,23 +31,3 @@ KLOR is a 36-42 key column-staggered split keyboard. It supports a per key RGB m
 ![KLOR layouts](/docs/images/klor-layouts.svg)
 
 Polydactyl is the default layout. If you choose one of the other layouts you can use the matching template in the default keymap.
-
-
-## HOW TO USE
-
-- fork this repo
-- `git clone` your repo, to create a local copy on your PC (you can use the [command line](https://www.atlassian.com/git/tutorials) or [github desktop](https://desktop.github.com/))
-- adjust the klor.keymap file (find all the keycodes on [the zmk docs pages](https://zmk.dev/docs/codes/))
-- `git push` your repo to your fork
-- on the GitHub page of your fork navigate to "Actions"
-- scroll down and unzip the `firmware.zip` archive that contains the latest firmware
-- connect the left half of the KLOR to your PC, press reset twice
-- the keyboard should now appear as a mass storage device
-- drag'n'drop the `klor_left-nice_nano_v2-zmk.uf2` file from the archive onto the storage device
-- repeat this process with the right half and the `klor_right-nice_nano_v2-zmk.uf2` file.
-
-
-## KNOWN ISSUES
-
-- The encoder on the secondary side doesn't work yet. This is a limitation of ZMK.
-- Need to add the code for the Pixart Paw3204 trackball.
